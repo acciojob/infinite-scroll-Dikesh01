@@ -1,28 +1,15 @@
-
-
-    window.addEventListener('DOMContentLoaded', function() {
-      var list = document.getElementById('infi-list');
-      var itemsToAdd = 2;
-
-      function addListItems() {
-        for (var i = 1; i <= itemsToAdd; i++) {
-          var listItem = document.createElement('li');
-          listItem.textContent = 'List item ' + (list.childElementCount + i);
-          list.appendChild(listItem);
-        }
-      }
-
-      function checkScroll() {
-        var lastItem = list.lastElementChild;
-        var lastItemOffset = lastItem.offsetTop + lastItem.offsetHeight;
-        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        var windowHeight = window.innerHeight;
-
-        if (scrollTop + windowHeight >= lastItemOffset) {
-          addListItems();
-        }
-      }
-
-      window.addEventListener('scroll', checkScroll);
-    });
-
+//your code here!
+let div1=document.getElementById('infi-list');
+let ct=10;
+div1.onscroll=function (ev) {
+	// console.log(div1.scrollTop,div1.clientHeight,div1.scrollHeight)
+	if (div1.scrollTop + div1.clientHeight >= div1.scrollHeight){
+		let li1=document.createElement('li');
+    ct++;
+    li1.innerText=`Item ${ct}`;
+    let li2=document.createElement('li');
+    ct++;
+    li2.innerText=`Item ${ct}`;
+    div1.append(li1,li2);
+	}
+}
